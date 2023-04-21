@@ -67,9 +67,9 @@ Client.OnStart = function()
 
 		alpha.shape.rot = alpha.shape.Rotation:Copy()
 
-		version = ui:createText(Environment.version, Color.White)
+		version = ui:createText(Environment.version.." [ Fabzh Modloader ]", Color.White)
 		version:setParent(titleScreen)
-		copyright = ui:createText("© Voxowl INC & Fabzh Modloader", Color.White)
+		copyright = ui:createText("© Voxowl INC", Color.White)
 		copyright:setParent(titleScreen)
 		pressAnywhere = ui:createText("Press Anywhere", Color.White)
 		pressAnywhere:setParent(titleScreen)

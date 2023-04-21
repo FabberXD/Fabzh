@@ -57,6 +57,7 @@ cubzh_thread = threading.Thread(target=cubzh, args=())
 cubzh_thread.start()
 print(f"{pref} Cubzh started!")
 
+#Adjust it if not working
 time.sleep(1)
 
 os.system(os.path.abspath('PSTools\\pssuspend.exe') + ' "Cubzh.exe"')

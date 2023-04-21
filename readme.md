@@ -1,6 +1,6 @@
 FABZH
 
-Cubzh modloader by SysFAB64
+Cubzh modloader for Windows by SysFAB64
 
 Other people:
 
