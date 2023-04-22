@@ -4,6 +4,5 @@
 
 Other people:
 
-* Nanskip - First tester
-
+* Nanskip - First tester  
 * 128x256 - Idea with PSTools suspend
