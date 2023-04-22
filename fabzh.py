@@ -2,6 +2,7 @@
 import os, time, threading, json, io, shutil
 from colorama import init, Fore, Back, Style
 from pathlib import Path
+from fabzh_filejoiner import merge_files
 init()
 print("Fabzh starting..")
 
@@ -11,7 +12,7 @@ if os.name == 'nt':
 	ResourcesPath = Path(f"C:\\Users\\{os.getlogin()}\\AppData\\Roaming\\Voxowl\\Particubes")
 	GameCommand = '"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Cubzh\\Cubzh.exe"'
 elif os.name == 'posix':
-	ResourcesPath = Path(f"Library/groupcontainers/voxowl9")
+	ResourcesPath = Path(f"~/Library/Group Containers/9JFN8QQG65.com.voxowl.particubes")
 	GameCommand = 'open ~/Library/Application\\ Support/Steam/steamapps/common/Cubzh/Cubzh.app'
 
 ModsPath = Path(f"Mods\\")
@@ -106,9 +107,9 @@ for mod in mods:
 					if len(file[2]) != 0:
 						for moddedfile in file[2]:
 							shutil.copy(os.path.abspath(file[0] + "\\" + moddedfile), os.path.join(str(ResourcesPath), file[0].replace(f"{mod[0]}\\", "")))
-	time.sleep(0.05) # Fix drive issues (i think)
 	except Exception as err:
 		print(f"{pref} Error when loading {mod[3]['Name']}. {err}")
+	time.sleep(0.05) # Fix drive issues (i think)
 
 print(f"{pref} Mods loaded!")
 time.sleep(0.1)
