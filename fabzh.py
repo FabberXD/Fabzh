@@ -7,10 +7,14 @@ print("Fabzh starting..")
 
 pref = f"{Fore.BLUE}[Fabzh]{Fore.WHITE}"
 
-ResourcesPath = Path(f"C:\\Users\\{os.getlogin()}\\AppData\\Roaming\\Voxowl\\Particubes")
-ModsPath = Path(f"Mods\\")
+if os.name == 'nt':
+	ResourcesPath = Path(f"C:\\Users\\{os.getlogin()}\\AppData\\Roaming\\Voxowl\\Particubes")
+	GameCommand = '"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Cubzh\\Cubzh.exe"'
+elif os.name == 'posix':
+	ResourcesPath = Path(f"Library/groupcontainers/voxowl9")
+	GameCommand = 'open ~/Library/Application\\ Support/Steam/steamapps/common/Cubzh/Cubzh.app'
 
-GamePath = '"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Cubzh\\Cubzh.exe"'
+ModsPath = Path(f"Mods\\")
 LaunchArgs = ""
 
 
@@ -64,7 +68,7 @@ if len(mods) == 0:
 
 print(f"{pref} Starting Cubzh..")
 def cubzh():
-	os.system(GamePath + ' ' + LaunchArgs)
+	os.system(GameCommand + ' ' + LaunchArgs)
 cubzh_thread = threading.Thread(target=cubzh, args=())
 cubzh_thread.start()
 print(f"{pref} Cubzh started!")
@@ -72,7 +76,10 @@ print(f"{pref} Cubzh started!")
 #Adjust it if not working
 time.sleep(1)
 
-os.system(os.path.abspath('PSTools\\pssuspend.exe') + ' "Cubzh.exe"')
+if os.name == 'nt':
+	os.system(os.path.abspath('PSTools\\pssuspend.exe') + ' "Cubzh.exe"')
+elif os.name == 'posix':
+	os.system(f'kill -STOP {cubzh_thread.native_id}')
 time.sleep(0.1)
 print(f"{pref} Game suspended!")
 
@@ -99,12 +106,16 @@ for mod in mods:
 					if len(file[2]) != 0:
 						for moddedfile in file[2]:
 							shutil.copy(os.path.abspath(file[0] + "\\" + moddedfile), os.path.join(str(ResourcesPath), file[0].replace(f"{mod[0]}\\", "")))
+	time.sleep(0.05) # Fix drive issues (i think)
 	except Exception as err:
 		print(f"{pref} Error when loading {mod[3]['Name']}. {err}")
 
 print(f"{pref} Mods loaded!")
 time.sleep(0.1)
-os.system(os.path.abspath('PSTools\\pssuspend.exe') + ' -r "Cubzh.exe"')
+if os.name == 'nt':
+	os.system(os.path.abspath('PSTools\\pssuspend.exe') + ' -r "Cubzh.exe"')
+elif os.name == 'posix':
+	os.system(f'kill -CONT {cubzh_thread.native_id}')
 print(f"{pref} Game resumed!")
 
 cubzh_thread.join()
