@@ -7,7 +7,7 @@
 FABZH - Cubzh modloader for Windows on Python, maded by only one developer  
 FABZH using only built-in modules (except colorama for text colors)  
 
-    ![Image of FABZH](/Assets/images/Cubzh_snRqJu3tVC.png)
+    ![Image of FABZH](https://raw.githubusercontent.com/FabberXD/Fabzh/main/Assets/images/Cubzh_snRqJu3tVC.png)
 
 ## Why FABZH?
 
