@@ -4,6 +4,6 @@ Cubzh modloader for Windows by SysFAB64
 
 Other people:
 
-Nanskip - First tester
+* Nanskip - First tester
 
-128x256 - Idea with PSTools suspend
+* 128x256 - Idea with PSTools suspend
