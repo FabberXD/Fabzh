@@ -1,4 +1,4 @@
 @echo OFF
 title Fabzh
-python main.py
+python fabzh.py
 PAUSE
