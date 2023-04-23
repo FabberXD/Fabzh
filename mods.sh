@@ -1,3 +1,3 @@
-python $(dirname "$0")/fabzh.py --start
+python $(dirname "$0")/fabzh.py --mods
 echo Press any key to continue...
 read blah
