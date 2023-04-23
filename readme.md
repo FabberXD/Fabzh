@@ -16,4 +16,5 @@ Because FABZH - always updating, dev-friendly solution
 ### Other people:
 
 * Nanskip - First tester  
-* 128x256 - Idea with PSTools suspend
+* 128x256 - Idea with PSTools suspend  
+* Λ H S Ξ N - First MacOS tester
