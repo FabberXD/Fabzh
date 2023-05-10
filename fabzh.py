@@ -4,7 +4,7 @@ from pathlib import Path
 from fabzh_filejoiner import merge_files
 
 if len(sys.argv) == 1:
-	print("[Fabzh] No launch args. Try to use --start or --mods")
+	print("No launch args. Try to use --start or --mods")
 	sys.exit()
 
 try:
@@ -17,15 +17,15 @@ except:
 
 print("Fabzh starting..")
 
+#Change to own paths
 if os.name == 'nt':
 	ResourcesPath = Path(f"C:\\Users\\{os.getlogin()}\\AppData\\Roaming\\Voxowl\\Particubes")
 	GameCommand = '"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Cubzh\\Cubzh.exe"'
 	ModsPath = Path(f"Mods\\")
 elif os.name == 'posix':
-	#Change to own path
 	ResourcesPath = Path(f"~/Library/Group Containers/9JFN8QQG65.com.voxowl.particubes")
 	GameCommand = 'open ~/Library/Application\\ Support/Steam/steamapps/common/Cubzh/Cubzh.app'
-	ModsPath = Path(f"Mods/")
+	ModsPath = Path(f"./Mods/")
 
 if "--mods" in sys.argv:
 	files = os.walk(ModsPath)
@@ -134,7 +134,7 @@ if "--start" in sys.argv:
 	print(f"{pref} Cubzh started!")
 
 	#Adjust it if not working
-	time.sleep(1)
+	time.sleep(1.05)
 
 	if os.name == 'nt':
 		os.system(os.path.abspath('PSTools\\pssuspend.exe') + ' "Cubzh.exe"')
